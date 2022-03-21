@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LazyLoading from './utils/LazyLoading';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Components
+import { Footer, Header, BreadCrumb } from './components';
+
+const Home = LazyLoading(() => import('./pages/home'));
+const Products = LazyLoading(() => import('./pages/products'));
+const Register = LazyLoading(() => import('./pages/register'));
+const Single = LazyLoading(() => import('./pages/single'));
+const Checkout = LazyLoading(() => import('./pages/checkout'));
+const Cart = LazyLoading(() => import('./pages/cart'));
+
+const App = () => {
+    return (
+        <Router>
+            <Header />
+            <main>
+                <BreadCrumb />
+                <Routes>
+                    <Route path="/:categoryName">
+                        <Route
+                            path="/:categoryName/:itemId"
+                            element={<Single />}
+                        />
+                        <Route index element={<Products />} />
+                    </Route>
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/" element={<Home />} />
+                </Routes>
+            </main>
+            <Footer />
+        </Router>
+    );
+};
 
 export default App;

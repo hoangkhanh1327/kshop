@@ -1,0 +1,90 @@
+/* Grid Animation */
+.grid-effect-left::before {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+}
+.grid-effect-left::after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 25%;
+    width: 25%;
+    height: 100%;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+}
+
+.grid-effect-right::before {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 75%;
+    width: calc(25% + 1px);
+    height: 100%;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+}
+
+.grid-effect-right::after {
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    left: 50%;
+    width: 25%;
+    height: 100%;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.8s ease-in-out;
+    opacity: 0;
+}
+
+.content-grid-effect:hover .grid-effect-left:before,
+.content-grid-effect:hover .grid-effect-left:after,
+.content-grid-effect:hover .grid-effect-right::before,
+.content-grid-effect:hover .grid-effect-right::after {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    filter: alpha(opacity=100);
+    -wekbit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+}
