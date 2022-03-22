@@ -18,6 +18,6 @@ KShop is a e-commerce website
 
 ## Todo
 
--   <s>Footer Contents</s>
--   <s>Responsive</s>
--   <s>Authentications</s>
+-   Footer Contents
+-   Responsive
+-   Authentications
