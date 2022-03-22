@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ProductCard, LoadingCard } from '../../Products';
@@ -23,9 +24,15 @@ const MenClothes = () => {
             <div className="container max-w-6xl py-16">
                 <div className="grid grid-cols-4 gap-8 py-4">
                     {!loading ? (
-                        menProducts?.map((product) => {
+                        menProducts?.map((product, index) => {
                             return (
-                                <div className="col-span-1" key={product.id}>
+                                <div
+                                    className={classNames(['col-span-1'], {
+                                        'animate-fadeRightToLeft': index >= 2,
+                                        'animate-fadeLeftToRight': index <= 1,
+                                    })}
+                                    key={product.id}
+                                >
                                     <ProductCard item={product} />
                                 </div>
                             );

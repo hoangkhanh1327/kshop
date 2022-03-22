@@ -4,9 +4,10 @@ import classNames from 'classnames';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../../redux/actions';
+import { toast } from 'react-toastify';
 
 const ProductCard = (props) => {
-    const { item } = props;
+    const { item, style } = props;
     const dispatch = useDispatch();
 
     const convertCategory = useCallback(() => {
@@ -25,10 +26,16 @@ const ProductCard = (props) => {
         return category;
     }, [item]);
 
+    const handleAddToCart = () => {
+        toast('Add 1 item to cart!');
+        dispatch(cartActions.addItemToCart(item, 1));
+    };
+
     return (
         <div
             className={classNames(
-                'flex flex-col w-full h-full  rounded shadow-md max-h-[440px]'
+                'flex flex-col w-full h-full  rounded shadow-md max-h-[440px]',
+                style
             )}
         >
             <div className="block relative basis-3/5 group">
@@ -53,9 +60,7 @@ const ProductCard = (props) => {
                 <div className="flex flex-col flex-1 justify-between">
                     <h5 className="text-center my-3 text-xl">{`$${item?.price}`}</h5>
                     <button
-                        onClick={() =>
-                            dispatch(cartActions.addItemToCart(item, 1))
-                        }
+                        onClick={() => handleAddToCart()}
                         className="capitalize w-1/2 mx-auto block bg-darkGray text-white text-sm rounded-sm px-[0.6rem] py-[0.3rem] hover:bg-purple cursor-pointer transition-all duration-500"
                     >
                         add to card
@@ -68,10 +73,12 @@ const ProductCard = (props) => {
 
 ProductCard.propTypes = {
     item: PropTypes.object.isRequired,
+    style: PropTypes.string,
 };
 
 ProductCard.defaultProps = {
     item: {},
+    style: '',
 };
 
 export default ProductCard;

@@ -15,6 +15,10 @@ const routes = [
         routeName: 'products',
         routePath: '/products',
     },
+    {
+        routeName: 'jewelery',
+        routePath: 'jewelery',
+    },
 ];
 
 export default routes;

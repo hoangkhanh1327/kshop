@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import salesData from '../../../constants/salesData';
 
 const SaleClothes = () => {
@@ -6,7 +7,17 @@ const SaleClothes = () => {
             <div className="container max-w-6xl">
                 <div className="grid grid-cols-3 gap-0">
                     {salesData.map((item, index) => (
-                        <div key={index} className="col-span-1">
+                        <div
+                            key={index}
+                            className={classNames(['col-span-1'], {
+                                'animate-fadeLeftToRight':
+                                    index === 0 || index === 3,
+                                'animate-fadeRightToLeft':
+                                    index === 2 || index === 5,
+                                'animate-fadeUp': index === 4,
+                                'animate-fadeDown': index === 1,
+                            })}
+                        >
                             <div className="relative group overflow-hidden translate3d transition-all duration-600 ease-in-out translate3d content-grid-effect">
                                 <div className="relative z-0 scale-100 transition-all duration-2200 ease-in-out w-full h-full group-hover:scale-150 grid-effect-left backface-hidden">
                                     <img

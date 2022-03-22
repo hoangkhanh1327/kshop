@@ -43,8 +43,62 @@ module.exports = {
                 2200: '2200ms',
             },
             keyframes: {
-                
-            }
+                fadeUp: {
+                    '0%': {
+                        opacity: '0%',
+                        transform: 'translateY(50%)',
+                    },
+                    '100%': {
+                        opacity: '100%',
+                        transform: 'translateY(0%)',
+                    },
+                },
+                fadeDown: {
+                    '0%': {
+                        opacity: '0%',
+                        transform: 'translateY(-50%)',
+                    },
+                    '100%': {
+                        opacity: '100%',
+                        transform: 'translateY(0%)',
+                    },
+                },
+                fadeRightToLeft: {
+                    '0%': {
+                        opacity: '0%',
+                        transform: 'translateX(50%)',
+                    },
+                    '100%': {
+                        opacity: '100%',
+                        transform: 'translateX(0%)',
+                    },
+                },
+                fadeLeftToRight: {
+                    '0%': {
+                        opacity: '0%',
+                        transform: 'translateX(-50%)',
+                    },
+                    '100%': {
+                        opacity: '100%',
+                        transform: 'translateX(0%)',
+                    },
+                },
+                fadeBlur: {
+                    '0%':{
+                        opacity: '0%'
+                    },
+                    '100%': {
+                        opacity: '100%'
+                    }
+                }
+            },
+            animation: {
+                fadeUp: 'fadeUp 0.7s ease-in-out',
+                fadeDown: 'fadeDown 0.7s ease-in-out',
+                fadeRightToLeft: 'fadeRightToLeft 0.7s ease-in-out',
+                fadeLeftToRight: 'fadeLeftToRight 0.7s ease-in-out',
+                fadeBlur: 'fadeBlur 300ms ease-in-out'
+            },
         },
     },
     plugins: [backfaceVisibility, require('@tailwindcss/line-clamp')],

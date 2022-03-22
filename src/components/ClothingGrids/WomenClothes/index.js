@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ProductCard, LoadingCard } from '../../Products';
 import imgStore from '../../../assets/img/11.jpg';
+import classNames from 'classnames';
 
 const WomenClothes = () => {
     const { products } = useSelector((state) => state.productState);
@@ -30,13 +31,15 @@ const WomenClothes = () => {
                             item={firstItem}
                             loading={loading}
                             fixedHeight="true"
+                            // eslint-disable-next-line react/style-prop-object
+                            style="animate-fadeLeftToRight"
                         />
                     ) : (
                         <LoadingCard />
                     )}
 
                     {/* Banner SaleOff */}
-                    <div className="col-start-2 col-span-2 max-h-[440px] overflow-hidden">
+                    <div className="col-start-2 col-span-2 max-h-[440px] overflow-hidden animate-fadeDown">
                         <div className="relative">
                             <img
                                 src={imgStore}
@@ -53,9 +56,19 @@ const WomenClothes = () => {
                     {/* End Banner SaleOff */}
 
                     {!loading ? (
-                        restItems?.map((item) => {
+                        restItems?.map((item, index) => {
                             return (
-                                <div className="col-span-1" key={item.id}>
+                                <div
+                                    className={classNames(['col-span-1'], {
+                                        'animate-fadeRightToLeft':
+                                            index === 3 ||
+                                            index === 0 ||
+                                            index === 4,
+                                        'animate-fadeLeftToRight':
+                                            index === 1 || index === 2,
+                                    })}
+                                    key={item.id}
+                                >
                                     <ProductCard item={item} />
                                 </div>
                             );

@@ -1,0 +1,1 @@
+export const SET_PRICE_FILTER = 'SET_PRICE_FILTER';

@@ -75,7 +75,7 @@ const Slider = () => {
                                 alt="K-Shop Banner"
                                 className="block relative w-full h-auto object-cover border-none"
                             />
-                            <div className="absolute top-44 left-80">
+                            <div className="absolute top-44 left-80 animate-fadeUp">
                                 <h2 className="text-6xl uppercase text-purple font-bold font-PoiretOne">
                                     {slide.title}
                                 </h2>

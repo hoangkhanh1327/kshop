@@ -6,9 +6,13 @@ export const getAllProducts = () => async (dispatch) => {
         type: productConstants.SET_LOADING,
     });
     const { data } = await productApi.getAllProducts();
+
+    const products = data.filter(
+        (product) => product.category !== 'electronics'
+    );
     dispatch({
         type: productConstants.SET_PRODUCTS,
-        payload: data,
+        payload: products,
     });
 };
 
@@ -18,7 +22,7 @@ export const getProductsByCategory = (categoryId) => async (dispatch) => {
     });
 
     const { data } = await productApi.getProductsByCategory(categoryId);
-    // add items to recently list
+
     dispatch({
         type: productConstants.SET_PRODUCTS,
         payload: data,

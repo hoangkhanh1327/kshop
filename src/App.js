@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LazyLoading from './utils/LazyLoading';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 // Components
 import { Footer, Header, BreadCrumb } from './components';
 
@@ -16,6 +17,7 @@ const App = () => {
         <Router>
             <Header />
             <main>
+                <ToastContainer />
                 <BreadCrumb />
                 <Routes>
                     <Route path="/:categoryName">
