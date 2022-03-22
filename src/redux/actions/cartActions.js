@@ -12,7 +12,7 @@ export const addItemToCart = (product, quantity) => async (dispatch) => {
             quantity,
             image,
             subTotalAmount,
-            description
+            description,
         },
     });
 };
@@ -20,5 +20,26 @@ export const addItemToCart = (product, quantity) => async (dispatch) => {
 export const removeAllItemsInCart = () => (dispatch) => {
     dispatch({
         type: cartConstants.EMPTY_CART,
+    });
+};
+
+export const subItemQuantity = (productId) => (dispatch) => {
+    dispatch({
+        type: cartConstants.SUB_QUANTITY,
+        payload: productId,
+    });
+};
+
+export const addQuantity = (productId) => (dispatch) => {
+    dispatch({
+        type: cartConstants.ADD_QUANTITY,
+        payload: productId,
+    });
+};
+
+export const removeItemFromCart = (productId) => (dispatch) => {
+    dispatch({
+        type: cartConstants.REMOVE_ITEM,
+        payload: productId,
     });
 };

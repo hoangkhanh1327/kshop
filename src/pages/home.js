@@ -11,6 +11,7 @@ import { productActions } from '../redux/actions';
 const Home = () => {
     const dispatch = useDispatch();
     useEffect(() => {
+        document.title = 'KShop - Cheap clothes for everyone';
         dispatch(productActions.getAllProducts());
     }, [dispatch]);
     return (

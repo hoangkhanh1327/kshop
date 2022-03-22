@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { productActions } from '../redux/actions';
 import { HiStar, HiOutlineShoppingCart } from 'react-icons/hi';
 import { BestSeller } from '../components/Widgets';
-import { SimilarProducts } from '../components/Products';
+import { RecentlyProduct, SimilarProducts } from '../components/Products';
 import { productApi } from '../apis';
 import { sizeMap } from '../constants';
 
@@ -222,11 +222,7 @@ const Single = () => {
                     <SimilarProducts />
                 </div>
                 <div className="p-4">
-                    <h3 className="text-gray-700 font-semibold text-2xl mb-5">
-                        Recently Products
-                    </h3>
-
-                    <div></div>
+                    <RecentlyProduct />
                 </div>
             </div>
         </section>

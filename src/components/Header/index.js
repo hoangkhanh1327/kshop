@@ -2,12 +2,8 @@ import { Link } from 'react-router-dom';
 
 // Components
 import Cart from './Cart';
-import Search from './Search';
 import Navbar from './Navbar';
 import Tabbar from './Tabbar';
-
-// Icons
-import { HiDeviceMobile } from 'react-icons/hi';
 
 import useNavigation from '../../hooks/useNavigation';
 import { routes } from '../../constants';

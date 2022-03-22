@@ -20,13 +20,23 @@ const productReducer = (state = initialState, action) => {
                 loading: true,
             };
         case productConstants.ADD_RECENTLY_PRODUCTS:
-            return {
-                ...state,
-                recentlyViewProducts: [
-                    ...state.recentlyViewProducts,
-                    action.payload,
-                ],
-            };
+            let addedProduct = action.payload;
+            const isProductExisted = state.recentlyViewProducts.filter(
+                (product) => product.id === addedProduct.id
+            );
+
+            if (isProductExisted.length > 0) {
+                return state;
+            } else {
+                return {
+                    ...state,
+                    recentlyViewProducts: [
+                        ...state.recentlyViewProducts,
+                        action.payload,
+                    ],
+                };
+            }
+
         default:
             return state;
     }

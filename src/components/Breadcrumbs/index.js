@@ -13,7 +13,11 @@ const BreadCrumb = () => {
         setCurrentRoute(result[0]);
     }, [location]);
 
-    if (currentRoute?.routeName?.toLowerCase() === 'home') return null;
+    if (
+        currentRoute?.routeName?.toLowerCase() === 'home' ||
+        location.pathname === '/checkout'
+    )
+        return null;
 
     return (
         <div className="py-1.5 bg-breadcrumb">

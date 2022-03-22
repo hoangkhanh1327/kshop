@@ -11,6 +11,10 @@ const ProductCatalogPage = () => {
     const { products, loading } = useSelector((state) => state.productState);
 
     useEffect(() => {
+        document.title = 'KShop - Products';
+    }, []);
+
+    useEffect(() => {
         if (params.categoryName) {
             switch (params.categoryName) {
                 case 'men':

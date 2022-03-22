@@ -1,13 +1,7 @@
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-import { CgMonday } from 'react-icons/cg';
-
 const Navbar = ({ navigationData, currentRoute, setCurrentRoute }) => {
-    // let acctionsStyle = classNames(
-    //     'bg-white hover:bg-gray-50 border-2 border-gray-900 text-sm text-gray-900 py-3 px-5 rounded-lg font-medium tracking-wide leading-none'
-    // );
-
     return (
         <nav className="hidden md:flex  px-8 h-[4.5rem]">
             {/* togging nav */}

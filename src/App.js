@@ -9,7 +9,7 @@ const Products = LazyLoading(() => import('./pages/products'));
 const Register = LazyLoading(() => import('./pages/register'));
 const Single = LazyLoading(() => import('./pages/single'));
 const Checkout = LazyLoading(() => import('./pages/checkout'));
-const Cart = LazyLoading(() => import('./pages/cart'));
+const NotFound = LazyLoading(() => import('./pages/not-found'));
 
 const App = () => {
     return (
@@ -25,9 +25,9 @@ const App = () => {
                         />
                         <Route index element={<Products />} />
                     </Route>
-                    <Route path="/cart" element={<Cart />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/not-found" element={<NotFound />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
             </main>

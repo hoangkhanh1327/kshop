@@ -1,27 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
 import LoadingCard from '../LoadingCard';
+import { Link, useLocation } from 'react-router-dom';
 
-const SimilarProducts = () => {
-    const { products } = useSelector((state) => state.productState);
+const RecentlyProduct = () => {
+    const { recentlyViewProducts } = useSelector((state) => state.productState);
     const location = useLocation();
-    const [loading, setLoading] = useState(true);
     const [data, setData] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // get 4 first items
-        if (products.length > 0) {
-            const fourthFirstItemInArray = products.slice(0, 4);
+        if (recentlyViewProducts.length > 0) {
+            const fourthFirstItemInArray = recentlyViewProducts.slice(0, 4);
             setData(fourthFirstItemInArray);
             setLoading(false);
         }
-    }, [products]);
-
+    }, [recentlyViewProducts]);
     return (
         <>
             <h3 className="text-gray-700 font-semibold text-2xl mb-5">
-                Similar Products
+                Recently Products
             </h3>
 
             <div className="hidden py-8 md:grid grid-cols-4 gap-2">
@@ -64,4 +62,4 @@ const SimilarProducts = () => {
     );
 };
 
-export default SimilarProducts;
+export default RecentlyProduct;
